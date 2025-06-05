@@ -23,6 +23,8 @@ body {
     min-height: 100vh;
     position: relative;
     margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 main {
@@ -274,12 +276,13 @@ section {
 }
 
 .map {
+    width: 100%;
     height: 400px;
     margin: 2rem 0;
+    border: 2px dashed #b0bec5;
     border-radius: 18px 40px 18px 40px;
     overflow: hidden;
     box-shadow: 4px 4px 0 #b0bec5;
-    border: 2px dashed #b0bec5;
 }
 
 .gifts h2, .dresscode h2, .gallery h2, .rsvp h2 {
@@ -397,7 +400,7 @@ section {
     border: 2px dashed #b0bec5;
     padding: 2rem 1.5rem;
 }
-.rsvp-form input,
+.rsvp-form input:not([type="radio"]),
 .rsvp-form select,
 .rsvp-form textarea {
     padding: 0.8rem;
@@ -406,6 +409,23 @@ section {
     font-family: inherit;
     background: #fff;
     box-shadow: 1px 1px 0 #b0bec5;
+}
+.rsvp-form select {
+    padding: 0.8rem 70px 0.8rem 0.8rem;
+    border: 1.5px dashed #b0bec5;
+    border-radius: 12px;
+    font-family: inherit;
+    background: #fff;
+    box-shadow: 1px 1px 0 #b0bec5;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.362%22%20height%3D%22292.362%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287.9%20139.9l-16.9-16.9c-3.1-3.1-8.2-3.1-11.3%200l-110.5%20110.5L48.3%20123c-3.1-3.1-8.2-3.1-11.3%200l-16.9%2016.9c-3.1%203.1-3.1%208.2%200%2011.3l128.1%20128.1c3.1%203.1%208.2%203.1%2011.3%200l128.1-128.1c3.2-3.1%203.2-8.2%200-11.4z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 30px top 50%;
+    background-size: 12px auto;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 .rsvp-form button {
     padding: 1rem;
@@ -577,4 +597,211 @@ footer {
 }
 @media (max-width: 900px) {
     .decor-left, .decor-right { display: none; }
+}
+
+.google-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.google-form-iframe {
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    .google-form-container {
+        padding: 10px;
+    }
+    
+    .google-form-iframe {
+        height: 500px !important;
+    }
+}
+
+.song-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.song-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+}
+
+.song-input-container input[name="song"] {
+    padding-left: 40px;
+    width: 100%;
+}
+
+.gallery-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.gallery-item {
+    width: 22%;
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.gallery-item::after {
+    content: '\f002'; /* Иконка лупы из Font Awesome */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+/* Стили для каждого ряда с разным углом/позиционированием */
+.gallery-row-1 {
+    transform: rotate(-3deg);
+    margin-bottom: 3rem;
+}
+
+.gallery-row-2 {
+    transform: rotate(2deg);
+    margin-top: -1rem;
+    margin-bottom: 3rem;
+}
+
+.gallery-row-3 {
+    transform: rotate(-1deg);
+    margin-top: -1rem;
+}
+
+/* Медиа-запрос для адаптивности галереи (отключаем) */
+/*
+@media (max-width: 768px) {
+    .gallery-row {
+        flex-direction: column; 
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .gallery-row img {
+        width: 80%; 
+        height: auto;
+    }
+    .gallery-row-1, .gallery-row-2, .gallery-row-3 {
+        transform: none;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+    }
+}
+*/
+
+.rsvp h2 {
+    font-family: var(--newspaper-font);
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    background: #fff;
+    display: inline-block;
+    padding: 0.3rem 1.2rem;
+    border-radius: 12px 30px 12px 30px;
+    box-shadow: 2px 2px 0 #b0bec5;
+    border: 1.5px dashed #b0bec5;
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    margin: auto; /* Центрируем изображение внутри flex контейнера */
+    display: block; /* Изображение как блочный элемент */
+    max-width: 90%; /* Максимальная ширина изображения */
+    max-height: 90%; /* Максимальная высота изображения */
+    border: 4px dashed #b0bec5; /* Рамка как у превью */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001; /* Выше модального контента */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 } 
