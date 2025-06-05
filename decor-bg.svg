@@ -1,0 +1,27 @@
+<svg width="100%" height="100%" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="900" fill="#f7f8fa"/>
+  <ellipse cx="300" cy="200" rx="220" ry="90" fill="#e3f2fd" fill-opacity="0.7"/>
+  <ellipse cx="1200" cy="150" rx="180" ry="70" fill="#b0bec5" fill-opacity="0.4"/>
+  <ellipse cx="1100" cy="700" rx="200" ry="100" fill="#64b5f6" fill-opacity="0.18"/>
+  <ellipse cx="400" cy="800" rx="180" ry="60" fill="#b0bec5" fill-opacity="0.18"/>
+  <!-- Мегафон -->
+  <g>
+    <ellipse cx="220" cy="120" rx="38" ry="18" fill="#222" fill-opacity="0.12"/>
+    <rect x="180" y="110" width="30" height="10" rx="5" fill="#fff" stroke="#222" stroke-width="2"/>
+    <polygon points="210,110 250,120 210,130" fill="#fff" stroke="#222" stroke-width="2"/>
+    <line x1="250" y1="120" x2="270" y2="110" stroke="#222" stroke-width="2"/>
+    <line x1="250" y1="120" x2="270" y2="130" stroke="#222" stroke-width="2"/>
+  </g>
+  <!-- Воздушные шары -->
+  <g>
+    <ellipse cx="1300" cy="250" rx="32" ry="32" fill="#fff" stroke="#b0bec5" stroke-width="3"/>
+    <ellipse cx="1350" cy="270" rx="24" ry="24" fill="#b0bec5" stroke="#b0bec5" stroke-width="2"/>
+    <ellipse cx="1320" cy="300" rx="18" ry="18" fill="#e3f2fd" stroke="#b0bec5" stroke-width="2"/>
+    <line x1="1300" y1="282" x2="1300" y2="320" stroke="#b0bec5" stroke-width="2"/>
+    <line x1="1350" y1="294" x2="1350" y2="320" stroke="#b0bec5" stroke-width="2"/>
+    <line x1="1320" y1="318" x2="1320" y2="340" stroke="#b0bec5" stroke-width="2"/>
+  </g>
+  <!-- Газетная вырезка -->
+  <rect x="100" y="600" width="220" height="40" rx="10" fill="#fff" stroke="#b0bec5" stroke-dasharray="6 4"/>
+  <rect x="1150" y="800" width="180" height="30" rx="8" fill="#fff" stroke="#b0bec5" stroke-dasharray="6 4"/>
+</svg> 
