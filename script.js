@@ -45,15 +45,15 @@ function initMap() {
 }
 
 // Обработка формы RSVP
-document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
+// document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+//     e.preventDefault();
+//     const formData = new FormData(this);
+//     const data = Object.fromEntries(formData);
     
-    // Здесь должна быть логика отправки данных на сервер
-    alert('Спасибо за подтверждение! Мы свяжемся с вами в ближайшее время.');
-    this.reset();
-});
+//     // Здесь должна быть логика отправки данных на сервер
+//     alert('Спасибо за подтверждение! Мы свяжемся с вами в ближайшее время.');
+//     this.reset();
+// });
 
 // Обработка поля аллергий
 document.getElementById('allergies-select').addEventListener('change', function() {
@@ -62,6 +62,7 @@ document.getElementById('allergies-select').addEventListener('change', function(
 });
 
 // --- Новая анимация конфетти: взрывы в случайных местах по краям сайта ---
+/*
 function createConfettiBurst() {
     const confettiContainer = document.querySelector('.confetti-container');
     const colors = ['#1e88e5', '#64b5f6', '#e3f2fd', '#b0bec5'];
@@ -88,7 +89,7 @@ function createConfettiBurst() {
 
         // Вектор разлёта
         const angle = (2 * Math.PI * i) / burstCount + Math.random() * 0.2;
-        const distance = 60 + Math.random() * 40;
+        const distance = 80 + Math.random() * 60;
         const dx = Math.cos(angle) * distance;
         const dy = Math.sin(angle) * distance;
 
@@ -96,22 +97,25 @@ function createConfettiBurst() {
             { transform: 'translate(0,0) scale(1)', opacity: 1 },
             { transform: `translate(${dx}px,${dy}px) scale(${0.7 + Math.random() * 0.5})`, opacity: 0 }
         ], {
-            duration: 1200 + Math.random() * 600,
+            duration: 1500 + Math.random() * 700,
             easing: 'cubic-bezier(.37,0,.63,1)'
         });
         animation.onfinish = () => confetti.remove();
     }
 }
+*/
 
 // Запуск взрывов конфетти с интервалом
 window.addEventListener('load', () => {
-    setInterval(createConfettiBurst, 1800);
+    // setInterval(createConfettiBurst, 1800); // Закомментировано
 });
 
 // Инициализация карты при загрузке страницы
-window.addEventListener('load', initMap);
+// window.addEventListener('load', initMap);
 
 // --- Галерея: добавление фото в стиле полароид-коллажа ---
+// Этот код больше не используется, так как галерея теперь в HTML
+/*
 const gallerySlider = document.getElementById('gallery-slider');
 const galleryImages = [
   'img/gallery1.jpg',
@@ -126,3 +130,40 @@ galleryImages.forEach(src => {
   img.alt = 'Фото с праздника';
   gallerySlider.appendChild(img);
 }); 
+*/
+
+// --- Попап окно для фото --- 
+const modal = document.getElementById("photo-modal");
+const modalImg = document.getElementById("modal-image");
+const closeButton = document.getElementsByClassName("close-button")[0];
+
+// Получаем все изображения в галерее
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+galleryItems.forEach(item => {
+  item.addEventListener('click', function() {
+    const img = this.querySelector('img');
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+// Закрываем модальное окно при клике на кнопку закрытия (x)
+closeButton.onclick = function() {
+  modal.style.display = "none";
+}
+
+// Закрываем модальное окно при клике вне изображения
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// --- Функции для форматирования имени и подстановки в поле формы ---
+function formatNameForInput(name) {
+  if (!name) return '';
+  // ... existing code ...
+}
+
+// ... existing code ... 

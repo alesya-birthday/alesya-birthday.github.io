@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="cloud-shape cloud-shape-1"></div>
@@ -14,8 +16,6 @@
     <div class="cloud-shape cloud-shape-3"></div>
    
   
-    <div class="confetti-container"></div>
-    
     <header class="header">
         <img src="img/happy.png" alt="Happy" class="happy-banner" style="display:block;margin:0 auto 0.5rem auto;max-width:180px;">
         <div class="countdown" id="countdown">
@@ -106,7 +106,7 @@
             <h2>Место проведения</h2>
             <p>г. Минск, ул. Аннаева 28А</p>
             <div class="map">
-                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A55b8879a899bf08c86c73b2f3e175b8c8addf0d0beb794f6504f871634744e07&amp;width=100%25&amp;height=490&amp;lang=ru_RU&amp;scroll=true"></script>
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A55b8879a899bf08c86c73b2f3e175b8c8addf0d0beb794f6504f871634744e07&amp;width=100%25&amp;height=490&amp;lang=ru_RU&amp;scroll=false"></script>
             </div>
             
         </section>
@@ -131,12 +131,30 @@
 
         <section class="gallery" style="background: url('img/20.jpg') center/cover no-repeat;">
             <h2>Я очень жду вас!</h2>
-            <div class="slider" id="gallery-slider"></div>
+            <!-- <div class="slider" id="gallery-slider"></div> -->
+            <div class="gallery-row gallery-row-1">
+                <div class="gallery-item"><img src="img/img5.jpg" alt="Gallery Photo 1" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/img6.jpg" alt="Gallery Photo 2" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/img7.jpg" alt="Gallery Photo 3" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/img8.jpg" alt="Gallery Photo 4" loading="lazy"></div>
+            </div>
+            <div class="gallery-row gallery-row-2">
+                <div class="gallery-item"><img src="img/img9.jpg" alt="Gallery Photo 5" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/img10.jpg" alt="Gallery Photo 6" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/img4.jpg" alt="Gallery Photo 7" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/img11.jpg" alt="Gallery Photo 8" loading="lazy"></div>
+            </div>
+            <div class="gallery-row gallery-row-3">
+                <div class="gallery-item"><img src="img/gallery2.jpg" alt="Gallery Photo 9" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/gallery3.jpg" alt="Gallery Photo 10" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/gallery1.jpg" alt="Gallery Photo 11" loading="lazy"></div>
+                <div class="gallery-item"><img src="img/gallery4.jpg" alt="Gallery Photo 12" loading="lazy"></div>
+            </div>
         </section>
 
         <section class="rsvp" style="background: url('') bottom/contain no-repeat;">
             <h2>Подтвердите присутствие до 15.06</h2>
-            <form id="rsvp-form" class="rsvp-form" action="send.php" method="POST">
+            <form id="rsvp-form" class="rsvp-form" action="https://formspree.io/f/manjnzpl" method="POST">
                 <input type="text" name="name" placeholder="Ваше имя" required>
                 <div class="attendance">
                     <label>
@@ -155,7 +173,12 @@
                     </select>
                     <textarea id="allergies-details" name="allergies_details" placeholder="Укажите аллергии" style="display: none;"></textarea>
                 </div>
-                <input type="text" name="song" placeholder="Песня, которую хочу услышать">
+                <div class="song-input-container">
+                    <img src="img/11-removebg-preview.png" alt="Музыкальная нота" class="song-icon">
+                    <input type="text" name="song" placeholder="Песня, которую хочу услышать на">
+                </div>
+                <input type="hidden" name="_subject" value="Новое подтверждение на день рождения">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
                 <button type="submit">Отправить</button>
             </form>
         
@@ -167,55 +190,146 @@
         <p>С любовью, <span class="name">Алеся</span></p>
     </footer>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <!-- Модальное окно для просмотра фото -->
+    <div id="photo-modal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&loading=async&defer"></script> -->
     <script src="script.js"></script>
     <script>
-      // Получаем параметры из URL
-      const urlParams = new URLSearchParams(window.location.search);
-      let guestName = urlParams.get('name');
+      document.addEventListener('DOMContentLoaded', function() {
+          console.log('DOMContentLoaded fired.');
+          // Получаем параметры из URL
+          const urlParams = new URLSearchParams(window.location.search);
+          let guestName = urlParams.get('name');
 
-      // Если нет name=, пробуем взять просто ?Имя
-      if (!guestName && window.location.search.length > 1) {
-        // Убираем ? и декодируем
-        guestName = decodeURIComponent(window.location.search.slice(1));
-      }
+          // Если нет name=, пробуем взять просто ?Имя
+          if (!guestName && window.location.search.length > 1) {
+            // Убираем ? и декодируем
+            try {
+                guestName = decodeURIComponent(window.location.search.slice(1));
+            } catch (e) {
+                console.error('Failed to decode URI component:', e);
+                guestName = null; // Сбросить guestName при ошибке декодирования
+            }
+          }
 
-      function escapeHtml(str) {
-        return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      }
+          console.log('guestName from URL:', guestName);
 
-      function formatTitle(name) {
-        if (!name) return 'Привет! Это приглашение на мой праздник!';
-        // Если имя без пробелов, но с большой буквы в середине (например, СергейНаталья)
-        if (/^[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+$/.test(name)) {
-          // Разбиваем на два имени
-          const parts = name.split(/(?=[А-ЯЁ])/);
-          if (parts.length === 2) {
-            return `Привет, ${parts[0]} и ${parts[1]}! Приглашаю вас на мой праздник!`;
+          function escapeHtml(str) {
+            return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+          }
+
+          function formatTitle(name) {
+            if (!name) return 'Привет! Это приглашение на мой праздник!';
+            // Если имя без пробелов, но с большой буквы в середине (например, СергейНаталья)
+            if (/^[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+$/.test(name)) {
+              // Разбиваем на два имени
+              const parts = name.split(/(?=[А-ЯЁ])/);
+              if (parts.length === 2) {
+                return `Привет, ${parts[0]} и ${parts[1]}! Приглашаю вас на мой праздник!`;
+              }
+            }
+            // Если имя содержит пробел или запятую, тоже считаем как два
+            if (/\s|,/.test(name)) {
+              const parts = name.split(/\s+|,+/).filter(Boolean);
+              if (parts.length === 2) {
+                return `Привет, ${parts[0]} и ${parts[1]}! Приглашаю вас на мой праздник!`;
+              }
+            }
+            // Обычное имя
+            return `Привет, ${name}! Приглашаю тебя на мой праздник!`;
+          }
+
+          if (guestName) {
+            const safeName = escapeHtml(guestName);
+            const titleElement = document.getElementById('invitation-title');
+            if (titleElement) {
+                titleElement.textContent = formatTitle(safeName);
+            }
+            localStorage.setItem('guestName', safeName);
+          } else {
+            const savedName = localStorage.getItem('guestName');
+            if (savedName) {
+              const titleElement = document.getElementById('invitation-title');
+              if (titleElement) {
+                  titleElement.textContent = formatTitle(savedName);
+              }
+            }
+          }
+
+          function formatNameForInput(name) {
+            if (!name) return '';
+            // Если имя без пробелов, но с большой буквы в середине (например, СергейНаталья)
+            if (/^[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+$/.test(name)) {
+              // Разбиваем на два имени
+              const parts = name.split(/(?=[А-ЯЁ])/);
+              if (parts.length === 2) {
+                return `${parts[0]} и ${parts[1]}`;
+              }
+            }
+            // Если имя содержит пробел или запятую, тоже считаем как два
+            if (/\s|,/.test(name)) {
+              const parts = name.split(/\s+|,+/).filter(Boolean);
+              if (parts.length === 2) {
+                return `${parts[0]} и ${parts[1]}`;
+              }
+            }
+            // Обычное имя
+            return name;
+          }
+
+          // Обработка поля ввода имени для подстановки из URL
+          const nameInput = document.querySelector('.rsvp-form input[name="name"]');
+          if (nameInput) {
+            console.log('Name input element found:', nameInput);
+            const savedName = localStorage.getItem('guestName');
+            if (savedName) {
+                nameInput.value = formatNameForInput(savedName);
+                console.log('Name input value set to:', nameInput.value);
+            }
+          } else {
+            console.log('Name input element not found.');
+          }
+
+          // Обработка поля аллергий
+          document.getElementById('allergies-select').addEventListener('change', function() {
+              const detailsField = document.getElementById('allergies-details');
+              detailsField.style.display = this.value === 'yes' ? 'block' : 'none';
+          });
+
+
+        }); // Конец DOMContentLoaded
+
+        // --- Попап окно для фото ---
+        const modal = document.getElementById("photo-modal");
+        const modalImg = document.getElementById("modal-image");
+        const closeButton = document.getElementsByClassName("close-button")[0];
+
+        // Получаем все изображения в галерее
+        const galleryImages = document.querySelectorAll('.gallery-row img');
+
+        galleryImages.forEach(img => {
+          img.addEventListener('click', function() {
+            modal.style.display = "flex"; // Показываем модальное окно
+            modalImg.src = this.src; // Устанавливаем источник изображения в модальном окне
+          });
+        });
+
+        // Закрываем модальное окно при клике на кнопку закрытия (x)
+        closeButton.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // Закрываем модальное окно при клике вне изображения
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
           }
         }
-        // Если имя содержит пробел или запятую, тоже считаем как два
-        if (/\s|,/.test(name)) {
-          const parts = name.split(/\s+|,+/).filter(Boolean);
-          if (parts.length === 2) {
-            return `Привет, ${parts[0]} и ${parts[1]}! Приглашаю вас на мой праздник!`;
-          }
-        }
-        // Обычное имя
-        return `Привет, ${name}! Приглашаю тебя на мой праздник!`;
-      }
 
-      if (guestName) {
-        const safeName = escapeHtml(guestName);
-        const titleElement = document.getElementById('invitation-title');
-        titleElement.textContent = formatTitle(safeName);
-        localStorage.setItem('guestName', safeName);
-      } else {
-        const savedName = localStorage.getItem('guestName');
-        if (savedName) {
-          document.getElementById('invitation-title').textContent = formatTitle(savedName);
-        }
-      }
-    </script>
+      </script>
 </body>
 </html> 
