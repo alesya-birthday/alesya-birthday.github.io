@@ -969,8 +969,8 @@ footer p {
 }
 
 .any-color-option {
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     border: 2px dashed #b0bec5; /* Пунктирная рамка */
     background: #fff; /* Белый фон */
@@ -1013,9 +1013,9 @@ footer p {
     max-width: 480px; /* Match main container width */
     margin: 20px auto; /* Center the container and add space */
     display: grid; /* Enable grid layout */
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* Responsive columns, min 90px wide */
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Responsive columns, min 90px wide */
     gap: 15px; /* Space between grid items */
-    padding: 0 10px; /* Add padding inside the container */
+    padding: 0 0; /* Add padding inside the container */
     justify-items: center; /* Center grid items horizontally */
 }
 
