@@ -675,6 +675,43 @@ footer p {
         gap: 1rem; /* Adjust gap for vertical layout */
         align-items: flex-start; /* Align items to the start */
     }
+
+    /* Hero composition adjustments for mobile */
+    .hero-composition {
+        height: 180px; /* Further reduced height */
+        max-width: 250px; /* Keep max-width */
+    }
+
+    .comp-alesya {
+        width: 100%; /* Keep size for mobile */
+        max-width: 250px;
+        bottom: -10px; /* Adjust bottom to move Alesya up */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .comp-discoball {
+        top: -5%; /* Adjust position */
+        left: 5%; /* Adjust position */
+        width: 25%; /* Keep size */
+        max-width: 60px;
+    }
+
+    .comp-24 {
+        bottom: 10%; /* Adjust position */
+        right: -10%; /* Keep position */
+        width: 45%; /* Keep size */
+        max-width: 90px;
+    }
+
+    .happy-banner {
+        margin: 0 auto 0rem auto; /* Reduced bottom margin for mobile */
+        max-width: 250px; /* Adjust max-width for mobile */
+    }
+
+    .photo-section {
+        padding: -40px 10px 0px 10px; /* Adjust padding to pull up and remove bottom padding */
+    }
 }
 @media (min-width: 900px) {
     main, .header, footer {
