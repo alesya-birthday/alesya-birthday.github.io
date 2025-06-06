@@ -1256,7 +1256,7 @@ footer p {
 }
 
 #loading-happy-banner {
-    max-width: 50%; /* Adjust size as needed */
+    max-width: 20%; /* Adjust size as needed */
     height: auto;
     animation: shimmer 1.5s ease-in-out infinite alternate; /* Apply shimmer animation */
 }
