@@ -1272,7 +1272,7 @@ footer p {
     }
     /* Existing mobile styles for comp elements */
     .comp-alesya {
-        width: 200%; /* Keep size for mobile */
+        width: 400px; /* Keep size for mobile */
         max-width: 400px;
         bottom: 0;
         left: 50%;
@@ -1289,8 +1289,8 @@ footer p {
     .comp-24 {
         bottom: 5%; /* Keep position */
         right: -15%; /* Keep position */
-        width: 50%; /* Keep size */
-        max-width: 100px;
+        width: 100%; /* Keep size */
+        max-width: 200px;
     }
 }
 
