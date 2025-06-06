@@ -1273,7 +1273,7 @@ footer p {
     /* Existing mobile styles for comp elements */
     .comp-alesya {
         width: 200%; /* Keep size for mobile */
-        max-width: 250px;
+        max-width: 400px;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
