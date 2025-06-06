@@ -435,6 +435,20 @@
               modal.style.display = "none";
             }
           }
+
+          // Скрытие оверлея карты на мобильных при клике
+          console.log('Attempting to find map overlay.');
+          const mapOverlay = document.querySelector('.map-overlay');
+          if (mapOverlay) {
+              console.log('Map overlay found, adding click listener.');
+              mapOverlay.addEventListener('click', function() {
+                  console.log('Map overlay clicked, attempting to hide.');
+                  this.style.display = 'none';
+                  console.log('Map overlay should now be hidden.');
+              });
+          } else {
+              console.log('Map overlay element not found.');
+          }
         }); // Конец DOMContentLoaded
 
       </script>

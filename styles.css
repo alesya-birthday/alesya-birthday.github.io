@@ -341,8 +341,8 @@ section {
     margin: 2rem 0;
 }
 .color {
-    width: 70px;
-    height: 770px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     border: 2px solid #b0bec5;
     box-shadow: 2px 2px 0 #b0bec5;
@@ -635,29 +635,36 @@ footer p {
 
     /* Guest list: 3 columns on mobile */
     .heart-container {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Explicitly 3 columns */
+        gap: 2px; /* Extremely small gap */
+        justify-items: center;
+        padding: 0;
     }
 
     .guest-item {
-        width: auto;
+        width: auto; /* Let grid manage width */
+        /* Ensure no conflicting min-width here */
+        box-sizing: border-box; /* Added to help with sizing calculations */
     }
 
     .guest-photo {
-        width: 65px;
-        height: 65px;
+        width: 40px; /* Extremely small photo */
+        height: 40px; /* Extremely small photo */
+        object-fit: cover;
     }
 
-    /* Color circles: adjust size, gap, and use aspect ratio */
+    /* Color circles: adjust size, gap */
     .color-palette {
-        gap: 6px;
+        gap: 6px; /* Adjusted gap */
+        padding: 0; /* Remove padding that caused overflow */
     }
     .color-palette .color,
     .color-palette .any-color-option {
         flex-shrink: 0;
-        width: 45px;
-        height: 45px;
-        aspect-ratio: 1 / 1;
+        width: 35px; /* Adjusted size */
+        height: 35px; /* Adjusted size */
+        aspect-ratio: 1 / 1; /* Ensure roundness */
     }
 }
 @media (min-width: 900px) {
