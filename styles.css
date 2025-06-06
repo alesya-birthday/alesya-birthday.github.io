@@ -662,8 +662,8 @@ footer p {
     .color-palette .color,
     .color-palette .any-color-option {
         flex-shrink: 0;
-        width: 70px; /* Adjusted size */
-        height: 70px; /* Adjusted size */
+        width: 50px; /* Adjusted size */
+        height: 50px; /* Adjusted size */
         aspect-ratio: 1 / 1; /* Ensure roundness */
     }
 }
