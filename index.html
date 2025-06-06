@@ -11,6 +11,9 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <div id="loading-screen">
+        <img src="img/happy1.png" alt="Happy Birthday Loading" id="loading-happy-banner">
+    </div>
     <div class="cloud-shape cloud-shape-1"></div>
     <div class="cloud-shape cloud-shape-2"></div>
     <div class="cloud-shape cloud-shape-3"></div>
@@ -19,7 +22,11 @@
     <header class="header">
         <img src="img/happy1.png" alt="Happy" class="happy-banner" style="display:block;margin:0 auto 0.5rem auto;max-width:330px;">
         <div class="photo-section">
-          <img src="img/frame-Photoroom.png" alt="Decorative frame">
+          <div class="hero-composition">
+            <img src="img/alesya.png" alt="Birthday girl" class="comp-alesya">
+            <img src="img/7.png" alt="Disco ball" class="comp-discoball">
+            <img src="img/24.png" alt="Number 24 balloons" class="comp-24">
+        </div> <!-- <img src="img/frame-Photoroom.png" alt="Decorative frame"> -->
         </div>
         <h1 id="invitation-title" class="title">Привет! Это приглашение на мой праздник!</h1>
 
@@ -33,50 +40,7 @@
 
    
     <main>
-        <section class="hero" style="background: url('img/1.jpg') center/cover no-repeat;">
-          
-            <div class="date-calendar">
-                <div class="calendar-widget">
-                    <div class="calendar-header">Июнь 2025</div>
-                    <div class="calendar-days">
-                        <span>Вс</span><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span>
-                    </div>
-                    <div class="calendar-grid">
-                        <span class="calendar-cell">1</span>
-                        <span class="calendar-cell">2</span>
-                        <span class="calendar-cell">3</span>
-                        <span class="calendar-cell">4</span>
-                        <span class="calendar-cell">5</span>
-                        <span class="calendar-cell">6</span>
-                        <span class="calendar-cell">7</span>
-                        <span class="calendar-cell">8</span>
-                        <span class="calendar-cell">9</span>
-                        <span class="calendar-cell">10</span>
-                        <span class="calendar-cell">11</span>
-                        <span class="calendar-cell">12</span>
-                        <span class="calendar-cell">13</span>
-                        <span class="calendar-cell">14</span>
-                        <span class="calendar-cell">15</span>
-                        <span class="calendar-cell">16</span>
-                        <span class="calendar-cell">17</span>
-                        <span class="calendar-cell">18</span>
-                        <span class="calendar-cell">19</span>
-                        <span class="calendar-cell">20</span>
-                        <span class="calendar-cell">21</span>
-                        <span class="calendar-cell">22</span>
-                        <span class="calendar-cell">23</span>
-                        <span class="calendar-cell">24</span>
-                        <span class="calendar-cell">25</span>
-                        <span class="calendar-cell">26</span>
-                        <span class="calendar-cell">27</span>
-                        <span class="calendar-cell">28</span>
-                        <span class="calendar-cell selected">29</span>
-                        <span class="calendar-cell">30</span>
-                    </div>
-                </div>
-            </div>
-            <img src="img/transparent/2_no_bg.png" class="sticker sticker-megaphone" alt="Мегафон">
-        </section>
+      
 
         <section class="timeline" style="background: rgba(255,255,255,0.82); background-image: url('img/45e.jpg'); background-size: cover;">
             <h2>Программа дня</h2>
@@ -216,21 +180,22 @@
                     <span class="guest-name">Габит</span>
                     <span class="confirmation-checkmark">&#10003;</span>
                 </div>
-                 <div class="guest-item">
-                    <img src="img/guest17.jpg" alt="Гость" class="guest-photo">
-                    <span class="guest-name">Алеся</span>
-                    <span class="confirmation-checkmark">&#10003;</span>
-                </div>
+                <div class="guest-item">
+                  <img src="img/guest19.jpg" alt="Гость" class="guest-photo">
+                  <span class="guest-name">Евгений</span>
+                  <span class="confirmation-checkmark">&#10003;</span>
+              </div>
+                 
                  <div class="guest-item">
                     <img src="img/guest18.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Екатерина</span>
                     <span class="confirmation-checkmark">&#10003;</span>
                 </div>
-                 <div class="guest-item">
-                    <img src="img/guest19.jpg" alt="Гость" class="guest-photo">
-                    <span class="guest-name">Евгений</span>
-                    <span class="confirmation-checkmark">&#10003;</span>
-                </div>
+                <div class="guest-item">
+                  <img src="img/guest17.jpg" alt="Гость" class="guest-photo">
+                  <span class="guest-name">Алеся</span>
+                  <span class="confirmation-checkmark">&#10003;</span>
+              </div>
                  <div class="guest-item">
                     <img src="img/guest20.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Алла</span>
@@ -448,6 +413,18 @@
               console.log('Map overlay element not found.');
           }
         }); // Конец DOMContentLoaded
+
+        // Скрипт для скрытия экрана загрузки после загрузки страницы
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.classList.add('hidden');
+                 // Удаляем экран загрузки после завершения анимации (опционально)
+                loadingScreen.addEventListener('transitionend', function() {
+                    loadingScreen.remove();
+                });
+            }
+        });
 
       </script>
 </body>
