@@ -309,19 +309,32 @@
           function formatTitle(name) {
             if (!name) return 'Привет! Это приглашение на мой праздник!';
             name = name.trim();
-            // Если имя без пробелов, но с большой буквы в середине (например, СергейНаталья)
-            if (/^[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+$/.test(name)) {
-              // Разбиваем на два имени
-              const parts = name.split(/(?=[А-ЯЁ])/);
-              if (parts.length === 2) {
-                return `Привет, ${parts[0]} и ${parts[1]}! Приглашаю вас на мой праздник!`;
+            // Если имя без пробелов, но с большой буквы в середине (например, СергейНатальяЕлена)
+            if (/^[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+$/.test(name)) {
+              // Разбиваем на три имени
+              const parts = name.split(/(?=[А-ЯЁ])/).filter(Boolean);
+              if (parts.length === 3) {
+                return `Привет, ${parts[0]}, ${parts[1]} и ${parts[2]}! Приглашаю вас на мой праздник!`;
               }
             }
-            // Если имя содержит пробел или запятую, тоже считаем как два
+            // Если имя без пробелов, но с большой буквы в середине (например, СергейНаталья) - для двух имен
+            if (/^[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+$/.test(name)) {
+                // Разбиваем на два имени
+                const parts = name.split(/(?=[А-ЯЁ])/).filter(Boolean);
+                if (parts.length === 2) {
+                  return `Привет, ${parts[0]} и ${parts[1]}! Приглашаю вас на мой праздник!`;
+                }
+              }
+            // Если имя содержит пробел или запятую, тоже считаем как несколько имен
             if (/\s|,/.test(name)) {
-              const parts = name.split(/\s+|,+/).filter(Boolean);
+              const parts = name.split(/[\s,]+/).filter(Boolean);
               if (parts.length === 2) {
                 return `Привет, ${parts[0]} и ${parts[1]}! Приглашаю вас на мой праздник!`;
+              } else if (parts.length === 3) {
+                return `Привет, ${parts[0]}, ${parts[1]} и ${parts[2]}! Приглашаю вас на мой праздник!`;
+              } else if (parts.length > 3) {
+                  // Можно добавить логику для большего количества имен, или оставить как есть
+                   return `Привет, ${parts.slice(0, -1).join(', ')} и ${parts[parts.length - 1]}! Приглашаю вас на мой праздник!`;
               }
             }
             // Обычное имя
@@ -331,19 +344,31 @@
           function formatNameForInput(name) {
             if (!name) return '';
             name = name.trim();
-            // Если имя без пробелов, но с большой буквы в середине (например, СергейНаталья)
-            if (/^[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+$/.test(name)) {
-              // Разбиваем на два имени
-              const parts = name.split(/(?=[А-ЯЁ])/);
-              if (parts.length === 2) {
-                return `${parts[0]} и ${parts[1]}`;
+            // Если имя без пробелов, но с большой буквы в середине (например, СергейНатальяЕлена)
+            if (/^[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+$/.test(name)) {
+              // Разбиваем на три имени
+              const parts = name.split(/(?=[А-ЯЁ])/).filter(Boolean);
+              if (parts.length === 3) {
+                return `${parts[0]}, ${parts[1]} и ${parts[2]}`;
               }
             }
-            // Если имя содержит пробел или запятую, тоже считаем как два
+             // Если имя без пробелов, но с большой буквы в середине (например, СергейНаталья) - для двух имен
+             if (/^[А-ЯЁ][а-яё]+[А-ЯЁ][а-яё]+$/.test(name)) {
+                // Разбиваем на два имени
+                const parts = name.split(/(?=[А-ЯЁ])/).filter(Boolean);
+                if (parts.length === 2) {
+                  return `${parts[0]} и ${parts[1]}`;
+                }
+              }
+            // Если имя содержит пробел или запятую, тоже считаем как несколько имен
             if (/\s|,/.test(name)) {
-              const parts = name.split(/\s+|,+/).filter(Boolean);
-              if (parts.length === 2) {
+              const parts = name.split(/[\s,]+/).filter(Boolean);
+               if (parts.length === 2) {
                 return `${parts[0]} и ${parts[1]}`;
+              } else if (parts.length === 3) {
+                return `${parts[0]}, ${parts[1]} и ${parts[2]}`;
+              } else if (parts.length > 3) {
+                   return `${parts.slice(0, -1).join(', ')} и ${parts[parts.length - 1]}`;
               }
             }
             // Обычное имя
