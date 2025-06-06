@@ -58,6 +58,7 @@ main {
 .title {
     font-family: var(--newspaper-font);
     font-size: 2.7rem;
+    margin-top: -40px;
     margin-bottom: 1rem;
     background: #fff;
     display: inline-block;
@@ -65,20 +66,19 @@ main {
     border-radius: 18px 40px 18px 40px;
     box-shadow: 4px 4px 0 #b0bec5, 0 2px 16px #e3f2fd;
     border: 2px dashed #b0bec5;
-    animation: fadeIn 1.5s ease-in;
     letter-spacing: 0.5px;
 }
 
 .countdown {
     font-family: var(--newspaper-font);
     font-size: 1.1rem;
-    margin-bottom: 2rem;
+    /*margin-top: -80px;*/
     color: #444;
     background: rgba(255,255,255,0.8);
     display: inline-block;
     padding: 0.5rem 1.2rem;
     border-radius: 12px;
-    box-shadow: 2px 2px 0 #b0bec5;
+    /*box-shadow: 2px 2px 0 #b0bec5;*/
 }
 
 section {
@@ -189,7 +189,19 @@ section {
     background: var(--primary-color);
     color: #fff;
     font-weight: bold;
-    box-shadow: none;
+    border-radius: 50%;
+    transform: rotate(-5deg);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    padding: 0.2em;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+.calendar-days span, .calendar-grid span {
+    text-align: center;
+    color: #222;
+    font-weight: 400;
+    font-size: 1.1rem;
 }
 .calendar-days span {
     color: #999;
@@ -450,8 +462,10 @@ section {
     justify-content: center;
 }
 footer {
-    text-align: center;
-    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem;
     background: var(--accent-color);
     font-family: var(--newspaper-font);
     font-size: 1.1rem;
@@ -462,8 +476,18 @@ footer {
     background: rgba(255,255,255,0.97);
     border-radius: 24px;
     box-shadow: 0 0 32px 0 rgba(100,100,120,0.08);
-    padding: 1.5rem 1rem;
     position: relative;
+}
+
+footer p {
+    margin: 0 10px 0 0;
+}
+
+.sticker-footer-frog {
+    display: block;
+    max-width: 50px;
+    height: auto;
+    opacity: 0.92;
 }
 
 @keyframes fadeIn {
@@ -473,6 +497,11 @@ footer {
 @keyframes scaleIn {
     from { transform: scale(0); }
     to { transform: scale(1); }
+}
+@keyframes pulse {
+    0% { transform: scale(1) rotate(-5deg); }
+    50% { transform: scale(1.05) rotate(-5deg); }
+    100% { transform: scale(1) rotate(-5deg); }
 }
 
 @media (max-width: 900px) {
@@ -497,7 +526,17 @@ footer {
     transition: transform 0.3s;
 }
 .sticker-hb { top: 10px; left: 10px; width: 160px; }
-.sticker-megaphone { top: 40px; right: 10px; width: 90px; }
+.sticker-megaphone {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    width: 90px;
+    z-index: 10;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.92;
+    transition: transform 0.3s;
+}
 .sticker-music { top: 30px; left: 10px; width: 60px; }
 .sticker-star { bottom: 20px; right: 30px; width: 50px; }
 .sticker-frog { bottom: 10px; left: 20px; width: 70px; }
@@ -507,7 +546,17 @@ footer {
 .sticker-star2 { top: 10px; left: 50%; width: 60px; transform: translateX(-50%); }
 .sticker-cat { bottom: 10px; right: 10px; width: 60px; }
 .sticker-polaroid { top: 20px; left: 20px; width: 90px; }
-.sticker-music2 { top: 10px; right: 10px; width: 60px; }
+.sticker-music2 {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    width: 60px;
+    z-index: 10;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.92;
+    transition: transform 0.3s;
+}
 .sticker-raccoon { bottom: 10px; left: 10px; width: 70px; }
 .sticker-footer { bottom: 10px; right: 10px; width: 120px; }
 .sticker-women { bottom: 10px; left: 50px; width: 90px; }
@@ -804,4 +853,145 @@ footer {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
-} 
+}
+
+.gallery-single-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.gallery-single-item img {
+    position: relative;
+    width: 350px; /* Устанавливаем фиксированную ширину */
+    height: 330px; /* Подбираем высоту для желаемой пропорции */
+    object-fit: cover;
+    border-radius: 18px 40px 18px 40px; /* Оригинальный радиус углов */
+    box-shadow: 6px 6px 0 #b0bec5, 0 4px 32px #e3f2fd; /* Оригинальная тень */
+    border: 2px dashed #b0bec5; /* Оригинальная пунктирная рамка */
+    background: #fff; /* Оригинальный белый фон */
+    margin: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s ease; /* Анимация */
+    transform: rotate(-5deg); /* Начальное вращение */
+    z-index: 1;
+}
+
+.gallery-single-item img:hover {
+    z-index: 10;
+    transform: scale(1.08) rotate(0deg); /* Увеличение и выравнивание при наведении */
+    box-shadow: 12px 12px 0 #b0bec5, 0 8px 48px #e3f2fd; /* Усиленная тень при наведении */
+}
+
+.photo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: -50px 10px; /* Добавляем отступы */
+    background: none; /* Убираем фон секции, если есть */
+    background-color: transparent;
+}
+
+.photo-section img {
+    display: block; /* Убираем лишнее пространство под изображением */
+    max-width: 100%; /* Максимальная ширина - 100% контейнера */
+    height: auto; /* Сохраняем пропорции */
+    max-height: 400px; /* Ограничиваем максимальную высоту */
+    border-radius: 15px; /* Добавляем скругление углов */
+    
+}
+
+.any-color-option {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px dashed #b0bec5; /* Пунктирная рамка */
+    background: #fff; /* Белый фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: var(--newspaper-font);
+    font-size: 0.8rem;
+    color: var(--text-color);
+    box-shadow: 2px 2px 0 #b0bec5;
+    transition: transform 0.3s;
+}
+
+.any-color-option:hover {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+.any-color-text {
+    padding: 5px;
+}
+
+/* Добавляем стили для секции гостей */
+.guests h2 {
+    font-family: var(--newspaper-font);
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    background: #fff;
+    display: inline-block;
+    padding: 0.3rem 1.2rem;
+    border-radius: 12px 30px 12px 30px;
+    box-shadow: 2px 2px 0 #b0bec5;
+    border: 1.5px dashed #b0bec5;
+}
+
+/* Стили для контейнера гостей (теперь сетка) */
+.heart-container {
+    /* position: relative; Removed as not needed for grid */
+    width: 100%; /* Use full width for grid */
+    max-width: 480px; /* Match main container width */
+    margin: 20px auto; /* Center the container and add space */
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* Responsive columns, min 90px wide */
+    gap: 15px; /* Space between grid items */
+    padding: 0 10px; /* Add padding inside the container */
+    justify-items: center; /* Center grid items horizontally */
+}
+
+/* Styles for each guest item */
+.guest-item {
+    /* position: absolute; Removed absolute positioning */
+    width: 90px; /* Fixed width for grid item */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Center text below photo */
+    /* margin: 5px; Removed margin, using gap in grid */
+}
+
+.guest-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px dashed var(--silver-color);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    object-position: center;
+}
+
+.guest-item:hover .guest-photo {
+    transform: scale(1.05); /* Slightly less scale for grid */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.guest-name {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+    /* z-index: 10; Not needed for grid layout without overlap */
+}
+
+/* Removed positioning for 22 items */
+/*
+.heart-container .guest-item:nth-child(1) { top: 220px; left: 240px; }
+...
+.heart-container .guest-item:nth-child(22) { top: 390px; left: 50px; }
+*/
