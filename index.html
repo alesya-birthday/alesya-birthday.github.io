@@ -109,6 +109,7 @@
             <h2>Место проведения</h2>
             <p>г. Минск, ул. Аннаева 28А</p>
             <div class="map">
+                <div class="map-overlay"></div>
                 <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A55b8879a899bf08c86c73b2f3e175b8c8addf0d0beb794f6504f871634744e07&amp;width=100%25&amp;height=490&amp;lang=ru_RU&amp;scroll=false"></script>
             </div>
             
@@ -123,100 +124,132 @@
 
         <section class="guests">
             <h2>Приглашенные гости</h2>
+            <p class="confirmation-note">Гости с отметкой подтвердили своё присутствие</p>
             <div class="heart-container">
                 <div class="guest-item">
                     <img src="img/guest1.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Алина</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest2.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Иван</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest3.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Лилия</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest4.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Антон</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest5.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Николай</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
-                 <div class="guest-item">
+                 <div class="guest-item confirmed">
                     <img src="img/guest6.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Яков</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest7.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Мария</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest8.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Сергей</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest9.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Наталия</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
+                </div>
+                 <div class="guest-item">
+                    <img src="img/guest23.jpg" alt="Гость" class="guest-photo">
+                    <span class="guest-name">Валентина</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest10.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Ксения</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest11.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Даник</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest12.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Иван</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest13.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Юлия</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest22.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Евгения</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest14.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Сергей</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest15.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Марк</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest16.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Габит</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest17.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Алеся</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest18.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Екатерина</span>
+                    <span class="confirmation-tooltip">Не подтвердил </span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest19.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Евгений</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest20.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Алла</span>
+                    <span class="confirmation-tooltip">Не подтвердил присутствие</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
                  <div class="guest-item">
                     <img src="img/guest21.jpg" alt="Гость" class="guest-photo">
                     <span class="guest-name">Юрий</span>
+                    <span class="confirmation-checkmark">&#10003;</span>
                 </div>
             </div>
         </section>
 
         <section class="dresscode" style="">
             <h2>Дресс-код</h2>
+            <p class="confirmation-note">Можете выбрать подходящий цвет или надеть то, что пожелает душа</p>
+
             <div class="color-palette">
                 <div class="color blue"></div>
                 <div class="color white"></div>
@@ -401,6 +434,14 @@
             if (event.target == modal) {
               modal.style.display = "none";
             }
+          }
+
+          // Скрытие оверлея карты на мобильных при клике
+          const mapOverlay = document.querySelector('.map-overlay');
+          if (mapOverlay) {
+              mapOverlay.addEventListener('click', function() {
+                  this.style.display = 'none';
+              });
           }
         }); // Конец DOMContentLoaded
 
