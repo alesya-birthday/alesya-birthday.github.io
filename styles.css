@@ -341,8 +341,8 @@ section {
     margin: 2rem 0;
 }
 .color {
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 2px solid #b0bec5;
     box-shadow: 2px 2px 0 #b0bec5;
@@ -662,8 +662,8 @@ footer p {
     .color-palette .color,
     .color-palette .any-color-option {
         flex-shrink: 0;
-        width: 35px; /* Adjusted size */
-        height: 35px; /* Adjusted size */
+        width: 70px; /* Adjusted size */
+        height: 70px; /* Adjusted size */
         aspect-ratio: 1 / 1; /* Ensure roundness */
     }
 }
