@@ -1268,7 +1268,7 @@ footer p {
 
 @media (max-width: 500px) {
     .hero-composition {
-        height: 300px; /* Set height for screens less than 500px */
+        height: 250px; /* Set height for screens less than 500px */
     }
     /* Existing mobile styles for comp elements */
     .comp-alesya {
