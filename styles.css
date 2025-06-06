@@ -337,12 +337,12 @@ section {
 .color-palette {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
     margin: 2rem 0;
 }
 .color {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 770px;
     border-radius: 50%;
     border: 2px solid #b0bec5;
     box-shadow: 2px 2px 0 #b0bec5;
@@ -518,7 +518,7 @@ footer p {
     .birthday-number { font-size: 3.5rem; }
     .timeline-container { flex-direction: column; }
     .timeline-item { min-width: 100%; }
-    .map { height: 220px; }
+    .map { height: 300px; }
     .gallery .slider img { width: 120px; height: 160px; }
 }
 
@@ -629,12 +629,35 @@ footer p {
         z-index: 5;
         background: rgba(0, 0, 0, 0);
         cursor: pointer;
+        pointer-events: auto;
+        z-index: 15;
     }
 
     /* Guest list: 3 columns on mobile */
     .heart-container {
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px; /* Adjust gap as needed */
+        gap: 6px;
+    }
+
+    .guest-item {
+        width: auto;
+    }
+
+    .guest-photo {
+        width: 65px;
+        height: 65px;
+    }
+
+    /* Color circles: adjust size, gap, and use aspect ratio */
+    .color-palette {
+        gap: 6px;
+    }
+    .color-palette .color,
+    .color-palette .any-color-option {
+        flex-shrink: 0;
+        width: 45px;
+        height: 45px;
+        aspect-ratio: 1 / 1;
     }
 }
 @media (min-width: 900px) {
