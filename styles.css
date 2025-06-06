@@ -630,6 +630,12 @@ footer p {
         background: rgba(0, 0, 0, 0);
         cursor: pointer;
     }
+
+    /* Guest list: 3 columns on mobile */
+    .heart-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px; /* Adjust gap as needed */
+    }
 }
 @media (min-width: 900px) {
     main, .header, footer {
