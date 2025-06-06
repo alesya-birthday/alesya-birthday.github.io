@@ -1282,8 +1282,8 @@ footer p {
     .comp-discoball {
         top: -10%; /* Keep position */
         left: 0%; /* Keep position */
-        width: 30%; /* Keep size */
-        max-width: 70px;
+        width: 50%; /* Keep size */
+        max-width: 150px;
     }
 
     .comp-24 {
