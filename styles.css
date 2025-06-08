@@ -65,6 +65,7 @@ main {
     border-radius: 12px 30px 12px 30px;
     box-shadow: 2px 2px 0 #b0bec5;
     border: 1.5px dashed #b0bec5;
+}
 
 .title {
     font-family: var(--newspaper-font);
