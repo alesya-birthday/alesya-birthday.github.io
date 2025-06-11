@@ -1155,6 +1155,25 @@ footer p {
     display: none; /* Hide by default */
 }
 
+.confirmation-checkmark-2 {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 40%;
+    width: 50px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    z-index: 10;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
 .guest-item.confirmed .confirmation-checkmark {
     display: flex; /* Show only for confirmed guests */
 }
